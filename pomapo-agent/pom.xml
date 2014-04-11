@@ -3,37 +3,66 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>ch.qos.pomapo</groupId>
-    <artifactId>pomapo-parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
-  </parent>
-  
-  <artifactId>pomapo-agent</artifactId>
-  <packaging>jar</packaging>
-  <name>Pomapo Agent</name>
-  <description>Poor Man's Profiler Agent</description>
+    <parent>
+        <groupId>ch.qos.pomapo</groupId>
+        <artifactId>pomapo-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
 
-  <licenses>
-    <license>
-      <name>Eclipse Public License - v 1.0</name>
-      <url>http://www.eclipse.org/legal/epl-v10.html</url>
-    </license>
+    <artifactId>pomapo-agent</artifactId>
+    <packaging>jar</packaging>
+    <name>Pomapo Agent</name>
+    <description>Poor Man's Profiler Agent</description>
 
-    <license>
-      <name>GNU Lesser General Public License</name>
-      <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
-    </license>
-  </licenses>
+    <licenses>
+        <license>
+            <name>Eclipse Public License - v 1.0</name>
+            <url>http://www.eclipse.org/legal/epl-v10.html</url>
+        </license>
+
+        <license>
+            <name>GNU Lesser General Public License</name>
+            <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
+        </license>
+    </licenses>
 
 
-  <dependencies>
-      <dependency>
-         <groupId>javassist</groupId>
-         <artifactId>javassist</artifactId>
-      </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Premain-Class>ch.qos.pomapo.agent.PomapoAgent</Premain-Class>
+                            <Boot-Class-Path>/java/maven-3.0.3/repo/javassist/javassist/3.8.0.GA/javassist-3.8.0.GA.jar</Boot-Class-Path>
+                        </manifestEntries>
+                       <!-- <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>   -->
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>bundle-test-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

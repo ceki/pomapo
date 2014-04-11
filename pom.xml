@@ -42,6 +42,7 @@
     <junit.version>4.10</junit.version>
     <jdk.version>1.6</jdk.version>
     <javassist.version>3.8.0.GA</javassist.version>
+    <maven-jar-plugin.version>2.3.2</maven-jar-plugin.version>
   </properties>
 
   <developers>
