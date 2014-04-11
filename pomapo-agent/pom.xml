@@ -30,6 +30,10 @@
 
 
   <dependencies>
+      <dependency>
+         <groupId>javassist</groupId>
+         <artifactId>javassist</artifactId>
+      </dependency>
   </dependencies>
 
 </project>
