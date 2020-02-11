@@ -263,7 +263,7 @@
         <pluginRepository>
           <id>mc-release</id>
           <name>Local Maven repository of releases</name>
-          <url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
+          <url>https://mc-repo.googlecode.com/svn/maven2/releases</url>
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
@@ -302,7 +302,7 @@
     <pluginRepository>
       <id>apache.snapshots</id>
       <name>Apache Snapshot Plugin Repository</name>
-      <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+      <url>https://people.apache.org/repo/m2-snapshot-repository</url>
       <releases>
         <enabled>false</enabled>
       </releases>
